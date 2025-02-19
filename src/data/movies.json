@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "title": "Inception",
+      "year": 2010,
+      "genres": ["Sci-Fi", "Thriller"],
+      "rating": 8.8,
+      "image": "https://image-url.com/inception.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Dark Knight",
+      "year": 2008,
+      "genres": ["Action", "Drama"],
+      "rating": 9.0,
+      "image": "https://image-url.com/dark-knight.jpg"
+    }
+  ]

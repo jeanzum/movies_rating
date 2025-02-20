@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import OnBoarding from './components/Onboarding';
 import MovieList from "./pages/MovieList";
+import EditPreferences from "./pages/EditPreferences";
 import { getUserPreferences } from './db/indexedDB';
 
 import './App.css';
@@ -23,10 +25,19 @@ function App() {
 
   if (loading) return <p>Cargando...</p>;
 
-  return preferences ? (
-    <MovieList preferences={preferences} />
-  ) : (
-    <OnBoarding onComplete={setPreferences} />
+  return (
+    <Router>
+      <div className="app-container">
+        <nav>
+          <Link to="/">Inicio</Link>
+          <Link to="/edit-preferences">Editar Preferencias</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={preferences ? <MovieList preferences={preferences} /> : <OnBoarding onComplete={setPreferences} />} />
+          <Route path="/edit-preferences" element={<EditPreferences onComplete={setPreferences} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
